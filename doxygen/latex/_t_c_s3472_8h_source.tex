@@ -1,0 +1,27 @@
+\doxysection{TCS3472.\+h}
+\hypertarget{_t_c_s3472_8h_source}{}\label{_t_c_s3472_8h_source}\index{TCS3472/TCS3472.h@{TCS3472/TCS3472.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ TCS3472\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ TCS3472\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <Arduino.h>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <Wire.h>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_t_c_s3472}{TCS3472}}\ \{}
+\DoxyCodeLine{00008\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00009\ \ \ \ \ \mbox{\hyperlink{class_t_c_s3472}{TCS3472}}();}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_t_c_s3472_ab94569bce3a78a359db19154931b0ce5}{begin}}(uint8\_t\ address\ =\ 0x29);}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_t_c_s3472_afedeb38d32e88f48f63d4dc1f635e3bd}{getRGB}}(uint16\_t\ \&r,\ uint16\_t\ \&g,\ uint16\_t\ \&b);}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00023\ \ \ \ \ uint8\_t\ \_address;}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{void}\ writeToSensor(uint8\_t\ reg,\ uint8\_t\ value);}
+\DoxyCodeLine{00025\ \ \ \ \ uint16\_t\ readFromSensor(uint8\_t\ reg);}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{void}\ enable();}
+\DoxyCodeLine{00027\ \};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}
