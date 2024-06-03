@@ -1,3 +1,8 @@
+/*
+  Example for TCS3472 combined with an I2C LCD-screen.
+  Created by Co Bijkerk on 03/06/2024.
+*/
+
 #include <Wire.h>
 #include <Arduino.h>
 #include <LiquidCrystal_I2C.h>
@@ -12,7 +17,7 @@ struct TargetColor {
     const char* name;
 };
 
-TargetColor colors[] = {
+TargetColor colorlist[] = {
     {"Red"},
     {"Lime"},
     {"Blue"},
@@ -20,14 +25,18 @@ TargetColor colors[] = {
     {"Cyan"},
 };
 
-const int numColors = sizeof(colors) / sizeof(TargetColor);
+const int numColors = sizeof(colorlist) / sizeof(TargetColor);
 TargetColor targetColor;
+
+bool colorSensorStarted = false;
 
 void setup() {
     Serial.begin(9600);
     if (!colorSensor.begin()) {
         Serial.println("Failed to start sensor.");
-        while (1);
+    }
+    else {
+        colorSensorStarted = true;
     }
 
     lcd.init();
@@ -53,13 +62,18 @@ void loop() {
 }
 
 void selectNewColor() {
-    targetColor = colors[random(0, numColors)];
+    if (colorSensorStarted = true){
+        targetColor = colorlist[random(0, numColors)];
 
-    lcd.clear();
-    lcd.setCursor(0, 0);
-    lcd.print("Show me: ");
-    lcd.print(targetColor.name);
+        lcd.clear();
+        lcd.setCursor(0, 0);
+        lcd.print("Show me: ");
+        lcd.print(targetColor.name);
 
-    Serial.print("New target color: ");
-    Serial.println(targetColor.name);
+        Serial.print("New target color: ");
+        Serial.println(targetColor.name);
+    }
+    else {
+        lcd.print("Failed to start");
+    }
 }
