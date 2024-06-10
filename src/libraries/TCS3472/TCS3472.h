@@ -1,6 +1,8 @@
 #ifndef TCS3472_H
 #define TCS3472_H
 
+#include "TCS3472_ENUM.h"
+
 #include <Arduino.h>
 #include <Wire.h>
 
@@ -11,7 +13,7 @@ public:
      * Starts the TCS3472 color sensor.
      * @return True or False, depending if sensor started succesfully.
     */
-    bool begin(uint8_t address = 0x29);
+    bool begin(uint8_t address = COMMAND::ADDRESS);
 
     /**
      * Retrieves the RGB values.
