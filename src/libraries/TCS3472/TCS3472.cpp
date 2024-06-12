@@ -44,15 +44,14 @@ bool TCS3472::begin(uint8_t address) // Starten van de sensor
     }
 
     enable();
-    writeToSensor(COMMAND::ATIME, 0xEB);
-    writeToSensor(COMMAND::CONTROL, 0x00);
+    writeToSensor(COMMAND::ATIME, COMMAND::SET_ATIME);
 
     return true;
 }
 
 void TCS3472::enable() // Aanzetten van de sensor
 {
-    writeToSensor(COMMAND::ENABLE, 0x01);
+    writeToSensor(COMMAND::ENABLE, COMMAND::ENABLE_PON);
     delay(3);
-    writeToSensor(COMMAND::ENABLE, 0x03);
+    writeToSensor(COMMAND::ENABLE, COMMAND::ENABLE_AEN);
 }

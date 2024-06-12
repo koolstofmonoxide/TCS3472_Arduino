@@ -25,7 +25,11 @@ enum COMMAND
     GDATAL = 0X18,
     GDATAH = 0X19,
     BDATAL = 0X1A,
-    BDATAH = 0X1B
+    BDATAH = 0X1B,
+
+    ENABLE_PON = 0X01,
+    ENABLE_AEN = 0X03,
+    SET_ATIME = 0xF6
 };
 
 #endif
